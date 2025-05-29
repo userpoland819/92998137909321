@@ -1,0 +1,70 @@
+title: umarysi.pl
+description: Pensjonat u Marysi i Li-Mar | umarysi.pl
+baseurl: ""
+url: "https://umarysi.pl"
+theme: minima
+timezone: Europe/Warsaw
+
+sitemap:
+  exclude:
+    - "/author"
+    - "/admin/index.html"
+    - "/google8d6f0e19f677a1e1.html"
+    
+collections:
+  authors:
+    output: true
+  category:
+    output: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - CHANGELOG
+  - LICENSE
+  - README
+  - /docs
+  
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+      sidebar: left
+  # _authors
+  - scope:
+      path: ""
+      type: authors
+    values:
+      layout: author
+  # _category
+  - scope:
+      path: ""
+      type: category
+    values:
+      layout: category
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sass-converter
+  - jekyll-gist
+  - jekyll-avatar
+  - jekyll-sitemap

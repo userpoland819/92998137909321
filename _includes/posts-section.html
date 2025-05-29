@@ -1,0 +1,130 @@
+<div class="posts-section">
+    {% if include.title %}
+    <h2 class="social-title">{{ include.title }}</h2>
+    {% endif %}
+
+    <div class="posts-grid">
+        {% assign posts_to_show = site.posts %}
+        {% if include.category %}
+            {% assign posts_to_show = site.categories[include.category] %}
+        {% endif %}
+        
+        {% for post in posts_to_show limit: include.limit | default: 6 %}
+        <a href="{{ post.url }}" class="post-card">
+            <div class="post-image-link">
+                <img src="{{ post.image | default: '/assets/images/default.jpg' }}" 
+                     alt="{{ post.title }}" 
+                     class="post-image"
+                     loading="lazy">
+            </div>
+            <h3 class="post-title">
+                {{ post.title | truncate: 50 }}
+            </h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+.posts-section {
+    padding: 0rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+}
+
+/* Grid postów */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* Cała karta jako link */
+.post-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Zdjęcie posta */
+.post-image-link {
+    display: block;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-image {
+    transform: scale(1.03);
+}
+
+.post-title {
+    margin: 0;
+    padding: 1rem 0px;
+    font-size: 1rem;
+    line-height: 1.4; /* Wysokość linii */
+    height: 2.8em; /* 2 linie (1.4 x 2) */
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-align: left;
+}
+
+/* Responsywność */
+@media (max-width: 1024px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .post-title {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        height: 2.52em; /* 0.9rem * 1.4 * 2 = 2.52em */
+        padding: 0.8rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+/* Dla bardzo małych telefonów */
+@media (max-width: 360px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

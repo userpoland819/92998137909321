@@ -1,0 +1,107 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+  identity_url: "https://rybkiparty.netlify.app/.netlify/identity"
+  gateway_url: "https://rybkiparty.netlify.app/.netlify/git"
+  login: true
+  roles: ["admin", "editor"] # Allow both admin and editor roles
+
+media_folder: "assets/images/uploads" # Folder for uploaded images
+public_folder: "/assets/images/uploads" # URL path for uploaded images
+
+
+collections:
+  - name: "pages"
+    label: "Strony"
+    files:
+      - name: "privacy"
+        label: "Polityka Prywatności"
+        file: "polityka-prywatnosci.md"
+        fields:
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Slug", name: "permalink", widget: "string" }
+          - { label: "Zawartość", name: "body", widget: "markdown" }
+      - name: "contact"
+        label: "Kontakt"
+        file: "kontakt.md"
+        fields:
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Slug", name: "permalink", widget: "string" }
+          - { label: "Zawartość", name: "body", widget: "markdown" }
+          
+  - name: "posts"
+    label: "Posty"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Tytuł", name: "title", widget: "string" }
+      - { label: "Zdjęcie", name: "image", widget: "image", required: false }
+      - { label: "Autor", name: "author", widget: "relation", collection: "authors", value_field: "username", search_fields: ["title", "username"], display_fields: ["title"] }
+      - { label: "Kategoria", name: "category", widget: "relation", collection: "categories", value_field: "name", search_fields: ["name"], display_fields: ["name"], multiple: true }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Ukryty", name: "hidden", widget: "boolean", default: false }
+      - { label: "Zawartość", name: "body", widget: "markdown" }
+
+  - name: "categories"
+    label: "Kategorie"
+    folder: "_categories"
+    create: true
+    identifier_field: "name"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nazwa", name: "name", widget: "string" }
+      - { label: "Opis", name: "description", widget: "text", required: false }
+      - { label: "Ikona", name: "icon", widget: "string", required: false }
+
+  - name: "authors"
+    label: "Autorzy"
+    folder: "_authors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Display Name", name: "title", widget: "string" }
+      - { label: "Username", name: "username", widget: "string" }
+      - { label: "Default Author", name: "default", widget: "boolean", default: false }
+      - { label: "Avatar", name: "image", widget: "image", required: false }
+      - { label: "Bio", name: "bio", widget: "text", required: false }
+  
+  - name: "siteinfo"
+    label: "Informacje o stronie"
+    files:
+      - label: "Ustawienia strony"
+        name: "siteinfo"
+        file: "_data/siteinfo.yml"
+        fields:
+          - { label: "Tytuł strony", name: "title", widget: "string", required: false }
+          - { label: "Email kontaktowy", name: "email", widget: "string", required: false }
+          - { label: "Telefon", name: "phone", widget: "string", required: false }
+          - { label: "Google Analytics", name: "googleAnalytics", widget: "string", required: false }
+          - label: "Czcionka strony"
+            name: "font"
+            widget: "select"
+            options:
+              - { label: "Segoe UI", value: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }
+              - { label: "Roboto", value: "'Roboto', sans-serif" }
+              - { label: "Open Sans", value: "'Open Sans', sans-serif" }
+              - { label: "Arial", value: "Arial, sans-serif" }
+              - { label: "Georgia", value: "Georgia, serif" }
+              - { label: "Bungee", value: "'Bungee', cursive" }
+              - { label: "Luckiest Guy", value: "'Luckiest Guy', cursive" }
+              - { label: "Sigmar One", value: "'Sigmar One', cursive" }
+              - { label: "Unica One", value: "'Unica One', cursive" }
+              - { label: "DynaPuff", value: "'DynaPuff', cursive" }
+            default: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+          - label: "Social Media"
+            name: "socials"
+            widget: "list"
+            fields:
+              - { label: "Nazwa", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Nazwa użytkownika", name: "username", widget: "string" }
+              - { label: "Ikona (klasa FontAwesome)", name: "icon", widget: "string" }
+              - { label: "Przycisk", name: "button", widget: "string" }
+
+
+
+    

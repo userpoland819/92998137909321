@@ -1,0 +1,218 @@
+<section class="hero-slider">
+    <div class="swiper hero-swiper-container">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="slide-background" style="background-image: url('https://umarysi.pl/wp-content/uploads/2024/04/28726562-e1714049128517.jpg');"></div> <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1>Pensjonat u Marysi</h1>
+                    <p>Położony w spokojnej okolicy, nasz pensjonat oferuje spokój i ciszę, idealne warunki do odprężenia się. Nasze przytulne pokoje zapewniają komfortowy wypoczynek.</p>
+                    <a href="/u-marysi" class="btn-czytaj-dalej">Czytaj Dalej</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                 <div class="slide-background" style="background-image: url('https://umarysi.pl/wp-content/uploads/2024/04/512416649-1.jpg');"></div> <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1>Pensjonat Li-Mar</h1>
+                    <p>Położony w spokojnej okolicy, nasz pensjonat oferuje spokój i ciszę, idealne warunki do odprężenia się. Nasze przytulne pokoje zapewniają komfortowy wypoczynek.</p>
+                    <a href="/li-mar" class="btn-czytaj-dalej">Czytaj Dalej</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-button-prev hero-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="swiper-button-next hero-next"><i class="fas fa-chevron-right"></i></div>
+    </div>
+</section>
+
+
+<style>
+/* --- Ogólne style sekcji Hero Slider --- */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Wysokość slidera (dostosuj) */
+    min-height: 550px;
+    background-color: #333; /* Tło zastępcze */
+    font-family: sans-serif; /* Twoja czcionka */
+}
+
+.hero-swiper-container {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Upewnij się, że Swiper jest na wierzchu */
+    top: 0;
+    left: 0;
+}
+
+.swiper-slide {
+    position: relative;
+    overflow: hidden; /* Dla efektu Ken Burns i overlay */
+    background-color: #222; /* Tło w razie braku obrazka */
+}
+
+/* --- Tło slajdu z efektem Ken Burns --- */
+.slide-background {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    /* Animacja Ken Burns (powolne przybliżanie i przesuwanie) */
+    animation: kenburns 20s ease-in-out infinite alternate; 
+}
+
+@keyframes kenburns {
+    from {
+        transform: scale(1) translate(0, 0);
+    }
+    to {
+        transform: scale(1.1) translate(2%, -1%);
+    }
+}
+
+/* --- Nakładka na slajd (dla czytelności tekstu) --- */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Ciemna, półprzezroczysta nakładka */
+    z-index: 1;
+}
+
+/* --- Treść slajdu --- */
+.slide-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Wyrównanie do lewej */
+    padding: 0 8%; /* Marginesy boczne */
+    max-width: 650px; /* Maksymalna szerokość tekstu */
+    text-align: left;
+}
+
+.slide-content h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    font-weight: 300;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Przycisk --- */
+.btn-czytaj-dalej {
+    display: inline-block;
+    background-color: #f57c00; /* Pomarańczowy */
+    color: #ffffff;
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-czytaj-dalej:hover {
+    background-color: #ef6c00; /* Ciemniejszy */
+    transform: translateY(-3px);
+}
+
+/* --- Strzałki Swiper --- */
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.swiper-button-prev {
+    left: 20px;
+}
+
+.swiper-button-next {
+    right: 20px;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Ukrycie domyślnych strzałek Swipera */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none;
+}
+
+/* Styl dla ikon Font Awesome w strzałkach */
+.swiper-button-prev i,
+.swiper-button-next i {
+    font-size: 18px;
+}
+
+/* --- Responsywność --- */
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 75vh;
+        min-height: 450px;
+    }
+    .slide-content {
+        padding: 0 5%;
+        align-items: center; /* Wyśrodkowanie na mobilnych */
+        text-align: center;
+        max-width: 100%;
+    }
+    .slide-content h1 {
+        font-size: 2.5rem;
+    }
+     .slide-content p {
+        font-size: 1rem;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 40px;
+        height: 40px;
+    }
+     .swiper-button-prev { left: 10px; }
+     .swiper-button-next { right: 10px; }
+}
+
+@media (max-width: 480px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none; /* Opcjonalnie: ukryj strzałki na bardzo małych ekranach */
+    }
+     .slide-content h1 {
+        font-size: 2rem;
+    }
+}
+
+</style>
+

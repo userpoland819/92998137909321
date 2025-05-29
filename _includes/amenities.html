@@ -1,0 +1,202 @@
+<section class="udogodnienia">
+    <div class="container">
+        <div class="udogodnienia-header">
+            <h2 class="section-subtitle">UDOGODNIENIA</h2>
+            <h2 class="section-main-title">Komfort i Elegancja</h2>
+            <p>Wszystkie nasze pokoje są wyposażone w telewizor z płaskim ekranem, oferując dostęp do kanałów telewizji kablowej i satelitarnej. Dodatkowo, każdy z pokoi posiada własną łazienkę z prysznicem oraz zestawem ręczników.</p>
+            <div class="divider">
+                <span></span>
+                <i aria-hidden="true" class="fas fa-spa"></i> <span></span>
+            </div>
+        </div>
+
+        <div class="udogodnienia-grid">
+            <div class="feature-box animated zoomIn">
+                <div class="feature-icon"><i aria-hidden="true" class="fas fa-car"></i></div> <h3>Parking</h3>
+                <p>Bezpłatny parking zapewnia wygodę i spokój podczas pobytu w naszym pensjonacie.</p>
+            </div>
+
+            <div class="feature-box animated zoomIn" style="animation-delay: 0.3s;">
+                 <div class="feature-icon"><i aria-hidden="true" class="fas fa-tv"></i></div> <h3>Wyposażenie</h3>
+                <p>Każdy pokój wyposażony jest w telewizor z płaskim ekranem oraz własną łazienkę z prysznicem i świeżymi ręcznikami.</p>
+            </div>
+
+            <div class="feature-box animated zoomIn" style="animation-delay: 0.6s;">
+                 <div class="feature-icon"><i aria-hidden="true" class="fas fa-wifi"></i></div> <h3>Internet</h3>
+                <p>Darmowe, szybkie Wi-Fi o prędkości łącza 43 Mb/s, zapewniające wygodne korzystanie z internetu.</p>
+            </div>
+
+            <div class="feature-box animated zoomIn" style="animation-delay: 0.9s;">
+                 <div class="feature-icon"><i aria-hidden="true" class="fas fa-tag"></i></div> <h3>Korzystne Ceny</h3>
+                <p>Nasza oferta charakteryzuje się atrakcyjnymi cenami, które pozostają konkurencyjne i dostępne dla wszystkich klientów.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* --- Ogólne style sekcji Udogodnienia --- */
+    .udogodnienia {
+        padding: 80px 0;
+        background-color: #ffffff;
+        text-align: center;
+        font-family: sans-serif; /* Ustaw preferowaną czcionkę */
+    }
+
+    .udogodnienia .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* --- Nagłówek --- */
+    .udogodnienia-header {
+        margin-bottom: 60px;
+        max-width: 750px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .udogodnienia-header .section-subtitle {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+        color: #888888; /* Ciemnoszary */
+        font-weight: 500;
+    }
+
+    .udogodnienia-header .section-main-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        line-height: 1.2;
+        color: #222222; /* Ciemny */
+    }
+
+    .udogodnienia-header p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        color: #555555; /* Ciemnoszary */
+    }
+
+    /* --- Divider --- */
+    .udogodnienia .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 40px auto;
+        width: 150px;
+    }
+
+    .udogodnienia .divider span {
+        flex-grow: 1;
+        height: 1px;
+        background-color: #dddddd; /* Jasnoszara linia */
+    }
+
+    .udogodnienia .divider i {
+        font-size: 24px; /* Rozmiar ikony w dividerze */
+        color: #bbbbbb; /* Szary kolor ikony */
+        margin: 0 15px;
+    }
+    
+    /* --- Siatka udogodnień --- */
+    .udogodnienia-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px; /* Odstęp między boxami */
+    }
+
+    /* --- Pojedynczy box z udogodnieniem --- */
+    .feature-box {
+        text-align: center;
+        padding: 30px 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: #fff; 
+    }
+
+    .feature-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); 
+        border-radius: 8px;
+    }
+
+    .feature-icon i { /* Stylujemy bezpośrednio ikonę Font Awesome */
+        font-size: 45px; /* Rozmiar ikony */
+        color: #667eea; /* Kolor akcentu */
+        margin-bottom: 25px;
+        display: inline-block;
+        line-height: 1;
+    }
+
+    .feature-box h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #333333;
+    }
+
+    .feature-box p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #666666;
+    }
+
+    /* --- Animacja --- */
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .animated.zoomIn {
+      animation-name: zoomIn;
+      animation-duration: 0.6s;
+      animation-fill-mode: both;
+      visibility: visible;
+    }
+
+    /* --- Responsywność --- */
+    @media (max-width: 992px) {
+        .udogodnienia-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .udogodnienia-header .section-main-title {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .udogodnienia {
+            padding: 60px 0;
+        }
+        .udogodnienia-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .feature-box {
+            padding: 25px 15px;
+            box-shadow: none; 
+            border-bottom: 1px solid #f0f0f0; 
+        }
+        .feature-box:last-child {
+            border-bottom: none;
+        }
+        .feature-box:hover {
+            transform: none; 
+            box-shadow: none;
+        }
+         .udogodnienia-header .section-main-title {
+            font-size: 2.1rem;
+        }
+        .udogodnienia-header p {
+            font-size: 1rem;
+        }
+    }
+</style>

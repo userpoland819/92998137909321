@@ -1,0 +1,34 @@
+title: "Boski Stream"
+email: "kontakt@boski.stream"
+phone: "Codzienne spotkania z Jezusem i Ewangelią."
+googleAnalytics: "G-D11H4J64NS"
+colors:
+  backgroundDark: "#cfa742"
+  text: "#ffffff"
+  link: "#e6caf8"
+  link_hover: "#ff9e00"
+  
+socials:
+  - name: "Facebook"
+    url: "https://facebook.com/BoskiStream"
+    username: "/BoskiStream"
+    icon: "fab fa-facebook-f"
+    button: "Obserwuj"
+
+  - name: "Instagram"
+    url: "https://instagram.com/BoskiStream"
+    username: "@BoskiStream"
+    icon: "fab fa-instagram"
+    button: "Obserwuj"
+
+  - name: "YouTube"
+    url: "https://youtube.com/@BoskiStream"
+    username: "@BoskiStream"
+    icon: "fab fa-youtube"
+    button: "Subskrybuj"
+
+  - name: "TikTok"
+    url: "https://tiktok.com/@BoskiStream"
+    username: "@BoskiStream"
+    icon: "fab fa-tiktok"
+    button: "Obserwuj"

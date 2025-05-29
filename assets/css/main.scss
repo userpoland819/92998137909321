@@ -1,0 +1,40 @@
+---
+---
+
+
+        :root {
+            --primary: #0077b6;
+            --secondary: #00b4d8;
+            --accent: #ff9e00;
+            --dark: #03045e;
+            --light: #caf0f8;
+        }
+        
+html, body {
+  overflow-x: hidden;
+}
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+        
+        .content-box {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
