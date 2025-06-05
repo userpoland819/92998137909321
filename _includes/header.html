@@ -86,8 +86,13 @@
         background: #fff;
         padding: 15px 0;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        position: relative;
-        z-index: 1000;
+        z-index: 1000; /* Upewnij się, że header jest zawsze na wierzchu */
+
+        /* === KLUCZOWE ZMIANY DLA STICKY HEADER === */
+        position: sticky; /* Nagłówek będzie "przylegać" do góry */
+        top: 0;           /* Przylega do górnej krawędzi okna przeglądarki */
+        width: 100%;      /* Upewnij się, że rozciąga się na całą szerokość */
+        /* ========================================= */
     }
 
     .header-container {
@@ -152,7 +157,7 @@
     .main-nav a::after {
         content: '';
         position: absolute;
-        top: -20px;
+        top: -20px; /* Może być potrzebne dostosowanie tej wartości, jeśli zmienił się padding nagłówka */
         left: 0;
         width: 0;
         height: 4px;
@@ -186,7 +191,7 @@
     }
 
     .contact-btn:hover {
-        background: #0056b3;
+        background: #0056b3; /* Zachowaj ten kolor z poprzedniej wersji, jeśli to zamierzony efekt */
         color: white;
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0,123,255,0.3);
@@ -200,7 +205,7 @@
         font-size: 24px;
         color: #1D2228;
         cursor: pointer;
-        z-index: 1001;
+        z-index: 1001; /* Upewnij się, że toggle jest nad menu mobilnym */
         position: relative;
         padding: 8px;
         transition: all 0.3s ease;
@@ -220,9 +225,9 @@
 
     /* Mobile Navigation - Dropdown Style */
     .mobile-nav {
-        display: none;
-        position: absolute;
-        top: 100%;
+        display: none; /* Domyślnie ukryte */
+        position: absolute; /* Zostawiamy absolute, aby pojawiało się pod headerem */
+        top: 100%; /* Rozpocznie się dokładnie pod headerem */
         left: 0;
         width: 100%;
         background: #fff;
@@ -230,12 +235,12 @@
         z-index: 999;
         max-height: 0;
         overflow: hidden;
-        transition: all 0.3s ease;
+        transition: max-height 0.3s ease-out; /* Animacja wysokości */
     }
 
     .mobile-nav.active {
-        display: block;
-        max-height: 400px;
+        display: block; /* Pokaż, gdy aktywne */
+        max-height: 400px; /* Wystarczająca wysokość dla zawartości menu */
     }
 
     .mobile-nav ul {
@@ -318,6 +323,11 @@
     }
 
     .content-wrapper {
+        /* Dodaj padding-top do body lub do głównego kontenera treści, 
+           aby treść nie chowała się pod sticky headerem.
+           Wysokość headera to około 80px (padding 15px góra/dół + wysokość logo). 
+           Dostosuj wartość. */
+        padding-top: 80px; /* Przykładowa wartość, może wymagać precyzyjnego dopasowania */
         min-height: calc(100vh - 120px);
     }
 </style>
