@@ -1,20 +1,17 @@
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    
-    
-    
-    <header class="header-section">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<header class="header-section">
     <div class="header-container">
         <div class="logo-section">
             <a href="{{ '/' | relative_url }}">
                 <img src="https://umarysi.pl/wp-content/uploads/2024/04/limar-dark.png" 
                      alt="Li-Mar Logo" 
                      srcset="https://umarysi.pl/wp-content/uploads/2024/04/limar-dark.png 500w, 
-                             https://umarypl/wp-content/uploads/2024/04/limar-dark-300x66.png 300w" 
+                             https://umarysi.pl/wp-content/uploads/2024/04/limar-dark-300x66.png 300w" 
                      sizes="(max-width: 500px) 100vw, 500px">
             </a>
         </div>
@@ -29,19 +26,14 @@
             </ul>
         </nav>
 
-
-
-        
         <div class="contact-section">
-
             <button class="mobile-toggle" id="mobileToggle" aria-label="Menu Toggle">
-            <i class="fas fa-bars menu-icon"></i>
-            <i class="fas fa-times close-icon"></i>
+                <i class="fas fa-bars menu-icon"></i>
+                <i class="fas fa-times close-icon"></i>
             </button>
-        
+            
             <a href="{{ '/kontakt' | relative_url }}" class="contact-btn">KONTAKT</a>
         </div>
-        
     </div>
 
     <nav class="mobile-nav" id="mobileNav">
@@ -63,10 +55,10 @@
         if (mobileToggle && mobileNav) {
             mobileToggle.addEventListener('click', function() {
                 mobileNav.classList.toggle('active');
-                this.classList.toggle('active'); // Przełączanie klasy 'active' na przycisku dla zmiany ikon
+                this.classList.toggle('active');
             });
 
-            // Opcjonalnie: Zamknij menu po kliknięciu linku w menu mobilnym
+            // Zamknij menu po kliknięciu linku
             const mobileNavLinks = mobileNav.querySelectorAll('a');
             mobileNavLinks.forEach(link => {
                 link.addEventListener('click', function() {
@@ -78,9 +70,7 @@
     });
 </script>
 
-
-    <style>
-
+<style>
     * {
         margin: 0;
         padding: 0;
@@ -179,13 +169,14 @@
     .contact-section {
         flex: 0 0 auto;
         display: flex;
+        align-items: center;
+        gap: 15px;
     }
 
     .contact-btn {
         background: #FB8122;
         color: white;
         padding: 8px 20px;
-        margin: auto 0px;
         height: 38px;
         text-decoration: none;
         border-radius: 0px;
@@ -201,27 +192,22 @@
         box-shadow: 0 4px 12px rgba(0,123,255,0.3);
     }
 
-    /* Mobile Menu Toggle (Burger Icon) */
+    /* Mobile Menu Toggle */
     .mobile-toggle {
-        display: none; /* Domyślnie ukryty na desktopie */
+        display: none;
         background: none;
         border: none;
-        font-size: 28px; /* Nieco większy rozmiar dla lepszej widoczności */
-        color: #000; /* Czarny kolor ikony burgera */
+        font-size: 24px;
+        color: #1D2228;
         cursor: pointer;
         z-index: 1001;
         position: relative;
-        padding: 10px;
-        transition: transform 0.3s ease; /* Płynna animacja dla obrotu ikony */
+        padding: 8px;
+        transition: all 0.3s ease;
     }
 
     .mobile-toggle .close-icon {
         display: none;
-    }
-
-    /* Animacja obrotu dla ikony */
-    .mobile-toggle.active {
-        transform: rotate(90deg); /* Obróć ikonę burgera o 90 stopni */
     }
 
     .mobile-toggle.active .menu-icon {
@@ -232,59 +218,55 @@
         display: block;
     }
 
-    /* Mobile Navigation */
+    /* Mobile Navigation - Dropdown Style */
     .mobile-nav {
-        display: block; /* Zawsze blokowy, ale poza ekranem */
+        display: none;
         position: absolute;
-        top: 90px;
+        top: 100%;
         left: 0;
         width: 100%;
-        height: 100vh;
-        background: rgba(255,255,255,0.98); /* Białe tło z przezroczystością */
-        backdrop-filter: blur(10px); /* Efekt rozmycia tła */
-        z-index: 999; /* Niższy z-index niż toggle, aby toggle był na wierzchu */
-        padding-top: 0px;
-        overflow-y: auto;
-        transform: translateX(100%); /* Początkowo poza ekranem po prawej */
-        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Szybka animacja z efektem bounce */
+        background: #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
     }
 
     .mobile-nav.active {
-        transform: translateX(0); /* Wysuń na ekran */
+        display: block;
+        max-height: 400px;
     }
 
     .mobile-nav ul {
         list-style: none;
         padding: 0;
         margin: 0;
-        text-align: center;
     }
 
     .mobile-nav li {
-        margin: 20px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .mobile-nav li:last-child {
+        border-bottom: none;
     }
 
     .mobile-nav a {
-        color: #333; /* Kolor linków w menu mobilnym */
+        color: #1D2228;
         text-decoration: none;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 500;
         display: block;
-        padding: 15px;
+        padding: 15px 20px;
         transition: all 0.3s ease;
     }
 
     .mobile-nav a:hover,
     .mobile-nav a.active {
         color: #FB8122;
-        background: #FB812210;
-        border-radius: 10px;
-    }
-
-    .mobile-contact-btn {
-        display: block;
-        margin: 30px auto 0;
-        width: fit-content;
+        background: #f8f9fa;
+        padding-left: 30px;
     }
 
     /* Responsive Design */
@@ -294,24 +276,26 @@
         }
 
         .nav-section {
-            display: none; /* Ukryj nawigację desktopową */
-        }
-
-        .contact-section {
-
+            display: none;
         }
 
         .mobile-toggle {
-            display: block; /* Pokaż przycisk toggle */
+            display: block;
         }
 
         .logo-section img {
             height: 40px;
             max-width: 150px;
         }
+
+        .contact-btn {
+            padding: 6px 15px;
+            font-size: 13px;
+            height: 32px;
+        }
     }
 
-    /* Dopasowanie rozmiarów dla tabletów */
+    /* Tablet adjustments */
     @media (max-width: 992px) and (min-width: 769px) {
         .main-nav {
             gap: 20px;
@@ -327,16 +311,13 @@
         }
     }
 
-    /* Mniejsze odstępy dla większych ekranów mobilnych/mniejszych tabletów */
     @media (max-width: 1024px) and (min-width: 769px) {
         .main-nav {
             gap: 15px;
         }
     }
 
-    /* Content wrapper */
     .content-wrapper {
         min-height: calc(100vh - 120px);
     }
-
 </style>
